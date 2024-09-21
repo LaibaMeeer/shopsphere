@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Product</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <header class="order-header">
+        <h1>Place Your Order</h1>
+    </header>
+
+    <div class="order-container">
+        <div class="product-details">
+            <h2><%= product.name %></h2>
+            <img src="<%= product.image_url %>" alt="<%= product.name %>">
+            <p class="price">$<%= product.price %></p>
+            <p class="description"><%= product.description %></p>
+        </div>
+
+        <div class="order-form">
+            <form action="/api/orders" method="POST">
+                <input type="hidden" name="productId" value="<%= product.id %>">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                
+                <label for="paymentMethod">Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="cash_on_delivery">Cash on Delivery</option>
+                </select>
+
+                <button type="submit" class="btn-order">Place Order</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

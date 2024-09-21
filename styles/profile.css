@@ -1,0 +1,202 @@
+/* Ensure no margin or padding on body or html */
+html, body {
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #F39C12 !important; /* Sidebar background color */
+    min-height: 100vh; /* Full viewport height */
+    padding: 20px; /* Padding inside the sidebar */
+    color: white; /* Text color */
+    position: sticky; /* Keeps sidebar in view while scrolling */
+    top: 0; /* Position at the top of the viewport */
+    width: 250px; /* Set a fixed width for the sidebar */
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    justify-content: flex-start; /* Align links at the top */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    margin: 0; /* Ensure no margin around the sidebar */
+}
+
+/* Sidebar Link Styles */
+.sidebar a {
+    display: block; /* Make links block elements to occupy full width */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline from links */
+    padding: 10px; /* Padding inside the link */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 10px; /* Margin between links */
+    transition: background-color 0.3s, color 0.3s; /* Smooth color transitions */
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: rgba(255, 166, 0, 0.671); /* Background color on hover and active */
+    color: white; /* Text color on hover and active */
+}
+
+/* Content Styles */
+.content {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 166, 0, 0.671);
+    margin-left: 250px; /* Adjust margin to account for the sidebar width */
+    margin-top: 10%;
+    margin-bottom: 20px; /* Margin at the bottom */
+}
+
+/* Profile Header Image */
+.profile-header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+
+
+  /* product */
+ /* Style for Product Name and Price */
+.card-body {
+    background-color: #f39d1225;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .product-name {
+    font-weight: bold;
+    font-size: 1rem; /* Adjust as needed */
+  }
+  
+  .product-price {
+    font-weight: bold;
+    color: #F39C12; /* Orange color for price */
+    font-size: 1rem; /* Adjust as needed */
+  }
+  
+  /* Style for View Button */
+  .view-button {
+    background-color: transparent; /* Button background color */
+    border: none;
+    color: #8E44AD;
+    font-weight: bold;
+    padding: 5px 5px; /* Adjust padding as needed */
+    border-radius: 5px; /* Rounded corners for the button */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .view-button:hover {
+    background-color: #F39C12;
+    color: #FFFFFF;
+  }
+  
+  /* edit product */
+
+  /* General Styles */
+body {
+  background-color: #FFFFFF; /* White background */
+  font-family: 'Arial', sans-serif;
+  color: #333; /* Default text color */
+}
+
+/* Container styles */
+.product-container {
+  padding: 20px;
+  background-color: #f0efef; /* Vibrant orange background for the container */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Image */
+.product-image img {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.upload-button{
+  background-color: #8E44AD !important;
+  color: #FFFFFF !important;
+}
+.upload-button:hover {
+  background-color: #b26bce !important;
+}
+/* Product details */
+.product-details {
+  padding-left: 20px;
+  color: black; /* White text color for details */
+}
+
+.product-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #F39C12; /* Deep purple for the product title */
+}
+
+.product-description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #F39C12; /* White for price text */
+}
+
+/* Order/Submit button */
+.order-button {
+  background-color: #F39C12; /* Deep purple background */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.order-button:hover {
+  background-color: #6C3483; /* Darker shade of purple on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .product-details {
+      padding-left: 0;
+      text-align: center;
+  }
+
+  .order-button {
+      width: 100%;
+  }
+}
+
+ /* Navigation styles */
+ nav {
+  width: 100%;
+  height: 50px;
+  background-color: #F39C12 !important;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  padding: 0 15px;
+  color: #FFFFFF;
+}
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+}

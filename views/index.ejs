@@ -1,0 +1,76 @@
+<%- include('partials/header.ejs') -%>
+<div id="searchResults" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 row-cols-md-5 g-3"></div>
+
+<!-- All products -->
+<div class="container">
+    <% if (product && product.length > 0) { %>
+      <div class="album py-5">
+        <div class="container1">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 row-cols-md-5 g-3">
+            <% product.forEach(pro => { %>
+            <div class="col">
+              <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="170" height="200" src="<%= pro.image %>" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"/>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="card-title product-name mb-0"><%= pro.productname %></h5>
+                    <h6 class="card-subtitle product-price mb-0"><%= pro.price %> Rs.</h6>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <a href="/detail/<%= pro.id %>" class="d-inline-flex text-decoration-none">
+                      <button type="button" name="<%= pro.id %>" class="btn view-button">View</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    <% } %>
+</div>
+
+<script>
+  document.getElementById('searchInput').addEventListener('input', function() {
+    const searchQuery = this.value;
+
+    if (searchQuery.length > 2) { // Only search after 3 characters
+        fetch(`/search?query=${searchQuery}`)
+            .then(response => response.json())
+            .then(data => {
+                const resultsContainer = document.getElementById('searchResults');
+                resultsContainer.innerHTML = ''; // Clear previous results
+
+                if (data.products.length > 0) {
+                    data.products.forEach(product => {
+                        const productElement = document.createElement('div');
+                        productElement.className = 'col';
+                        productElement.innerHTML = `
+                            <div class="card shadow-sm">
+                                <img class="bd-placeholder-img card-img-top" width="170" height="200" src="${product.image}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"/>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title product-name mb-0">${product.productname}</h5>
+                                        <h6 class="card-subtitle product-price mb-0">${product.price} Rs.</h6>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="/detail/${product.id}" class="d-inline-flex text-decoration-none">
+                                            <button type="button" name="${product.id}" class="btn view-button">View</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        resultsContainer.appendChild(productElement);
+                    });
+                } else {
+                    resultsContainer.innerHTML = '<p>No products found</p>';
+                }
+            })
+            .catch(error => console.error('Error fetching search results:', error));
+    }
+});
+
+</script>
+<%- include('partials/footer.ejs') -%>

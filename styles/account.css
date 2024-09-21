@@ -1,0 +1,40 @@
+body{
+    background-color: #F39C12  ;
+}
+
+/* buttons */
+button.btn-primary{
+    background-color: #3498DB !important;
+}
+    
+  
+  button.btn-primary:hover {
+    background-color: #2980B9 !important;
+  }
+  
+
+  /* google button */
+  button.btn-outline-secondary {
+    border: 2px solid #3498DB; 
+    color: #3498DB; 
+    background-color: #FFFFFF; 
+    border-radius: 12px; 
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  button.btn-outline-secondary:hover {
+    background-color: #3498DB; 
+    color: #FFFFFF; 
+    border: 2px solid #FFFFFF; 
+
+  }
+  
+  button.btn-outline-secondary svg {
+    fill: #3498DB; 
+
+
+  }
+  
+
